@@ -38,24 +38,6 @@ public class DefaultEventServiceImpl implements IEventService {
 
     @Override
     public List<EventDto> findReport() {
-        List<Object[]> dataList = eventRepository.findTotalCostAndTotalDurationGroupByLocation();
-        List<EventDto> result = new ArrayList<>();
-
-        for (Object[] data : dataList) {
-            String location = (String) data[0];
-            Long totalEvent = (Long) data[1];
-            BigDecimal totalCost = (BigDecimal) data[2];
-            BigDecimal totalDuration = (BigDecimal) data[3];
-            double costDuration = totalCost.doubleValue() / totalDuration.doubleValue();
-
-            EventDto eventDto = EventDto.builder()
-                    .location(location)
-                    .totalEvent(totalEvent.intValue())
-                    .costDurationRatio(new BigDecimal(costDuration).setScale(3, RoundingMode.HALF_UP))
-                    .build();
-
-            result.add(eventDto);
-        }
-        return result;
+        return List.of();
     }
 }

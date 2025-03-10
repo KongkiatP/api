@@ -10,9 +10,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+@Data
 @Entity
 @Table(name = "event")
-@Data
 public class EventEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
